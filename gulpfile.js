@@ -10,8 +10,8 @@ const srcPaths = {
 }
 
 const destPaths = {
-	script: "./dest/",
-	styles: "./dest/"
+	script: "./dist/",
+	styles: "./dist/"
 }
 
 const includeOptions = {
