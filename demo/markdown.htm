@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=10">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,initial-scale=1.0" />
+<title></title>
+<link type="text/css" href="../dest/jupyter.min.css" media="all" rel="stylesheet"/>
+<script type="text/javascript" src="../dest/jupyter.min.js"></script>
+</head>
+<body>
+
+<div class="markdown-body">
+	<h1>Overview</h1>
+	<p>Markdown files are used in a wide range of areas and is commonly used as a technical narrative text when describing code libraries. With markdown files, library authors explains their code with descriptions and intermixed with static example of code, exemplifying the advantages of their libraries. It is fantastic. On thing I have missed though is, as a reader, the ability to test the code live - exactly on the spot, instead of the requirment to download the library, create a test-page in a local sandbox. Sure, I can try out the library at <a href="https://jsfiddle.net/">JSFiddle</a>, <a href="https://codepen.io/">Codepen</a> or similar. In my opinion, changing context (i.e. site) does result tarnished focus.</p>
+	<p>A few years ago, I came in contact with <a href="https://jupyter.org/">Jupyter Notebook</a>, when coding machine learning and I thought that feature was amazing. Even though the code was primarily for <a href="https://www.python.org/">Python</a> and serverside executed code - or more accurately, the code is piped to a kernel - I decided a few weeks ago to bring this feature to markdown files in the browser. In other words a simpler and easily appliable version for anyone who utilises markdown files.</p>
+	<h2>Example of active code</h2>
+<pre><code class="language-js"><span class="hljs-comment">/* jupyter:active */</span>
+<span class="hljs-keyword">var</span> a = <span class="hljs-number">5</span>;
+
+(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(a--);
+
+    <span class="hljs-keyword">if</span> (a) {
+        setTimeout(test, <span class="hljs-number">1000</span>);
+    }
+})();
+</code></pre>
+
+	<h2>Example of console.view</h2>
+<pre><code class="language-js"><span class="hljs-comment">/* jupyter:active */</span>
+<span class="hljs-keyword">var</span> view = <span class="hljs-built_in">console</span>.view({ <span class="hljs-attr">height</span>: <span class="hljs-number">180</span> }),
+    cvs = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'canvas'</span>),
+    ctx = cvs.getContext(<span class="hljs-string">'2d'</span>),
+    frequency = <span class="hljs-number">1</span>;
+
+cvs.width = view.width;
+cvs.height = view.height;
+ctx.fillStyle = <span class="hljs-string">'green'</span>;
+<span class="hljs-comment">// append child to DOM</span>
+view.el.appendChild(cvs);
+
+(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">draw</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> y = <span class="hljs-built_in">Math</span>.sin(frequency++ * <span class="hljs-number">0.035</span>) * (cvs.height / <span class="hljs-number">4</span>),
+        img = ctx.getImageData(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, cvs.width, cvs.height);
+
+    ctx.clearRect(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, cvs.width, cvs.height);
+    ctx.putImageData(img, <span class="hljs-number">-1</span>, <span class="hljs-number">0</span>);
+    ctx.fillRect(cvs.width - <span class="hljs-number">3</span>, y + (cvs.height / <span class="hljs-number">2</span>), <span class="hljs-number">3</span>, <span class="hljs-number">3</span>);
+
+    requestAnimationFrame(draw);
+})();
+</code></pre>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,132 @@
+
+// common classes
+.font_thinner {
+	text-rendering: optimizelegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.font_normal {
+	text-rendering: auto;
+	-webkit-font-smoothing: auto;
+	-moz-osx-font-smoothing: auto;
+}
+.font-trim {
+	text-rendering: optimizelegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+// clearfix
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+html[xmlns] .clearfix {
+	display: block;
+}
+* html .clearfix {
+	height: 1%;
+}
+
+
+// mixins
+.columnCount (@val) {
+	-webkit-column-count: @val;
+	-moz-column-count:    @val;
+	-ms-column-count:     @val;
+	column-count:         @val;
+}
+.columnGap (@val) {
+	-webkit-column-gap: @val;
+	-moz-column-gap:    @val;
+	-ms-column-gap:     @val;
+	column-gap:         @val;
+}
+.delay (@duration: 400ms) {
+	-webkit-transition-delay: @duration;
+	-moz-transition-delay:    @duration;
+	-ms-transition-delay:     @duration;
+	transition-delay:         @duration;
+}
+.transition (@duration: 400ms) {
+	-webkit-transition: all @duration ease-out;
+	-moz-transition:    all @duration ease-out;
+	-ms-transition:     all @duration ease-out;
+	transition:         all @duration ease-out;
+}
+.transitionWhat (@what: all, @duration: 400ms) {
+	-webkit-transition: @what @duration ease-in-out;
+	-moz-transition:    @what @duration ease-in-out;
+	-ms-transition:     @what @duration ease-in-out;
+	transition:         @what @duration ease-in-out;
+}
+.select(@val) {
+	-webkit-touch-callout: @val;
+	-webkit-user-select:   @val;
+	-moz-user-select:      @val;
+	-ms-user-select:       @val;
+	user-select:           @val;
+}
+.transform (@val) {
+	-webkit-transform: @val;
+	-moz-transform:    @val;
+	-ms-transform:     @val;
+	transform:         @val;
+}
+.transformOrigin (@val) {
+	-webkit-transform-origin: @val;
+	-moz-transform-origin:    @val;
+	-ms-transform-origin:     @val;
+	transform-origin:         @val;
+}
+.scale (@factor) {
+	-webkit-transform: scale( @factor );
+	-moz-transform:    scale( @factor );
+	-ms-transform:     scale( @factor );
+	-o-transform:      scale( @factor );
+}
+.grayscale (@value: 100%) {
+	-webkit-filter: grayscale( @value );
+	-moz-filter:    grayscale( @value );
+	-o-filter:      grayscale( @value );
+	-ms-filter:     grayscale( @value );
+	filter:         url("data:image/svg+xml;utf8,<svg%20xmlns='http://www.w3.org/2000/svg'><filter%20id='grayscale'><feColorMatrix%20type='matrix'%20values='0.3333%200.3333%200.3333%200%200%200.3333%200.3333%200.3333%200%200%200.3333%200.3333%200.3333%200%200%200%200%200%201%200'/></filter></svg>#grayscale"); /* Firefox 3.5+ */
+	filter:         gray; /* IE6+ */
+}
+.blur (@value) {
+	-webkit-filter: blur( @value );
+	-moz-filter:    blur( @value );
+	-o-filter:      blur( @value );
+	-ms-filter:     blur( @value );
+	filter:         url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg'><filter id='svgBlur'><feGaussianBlur stdDeviation='2px' /></filter></svg>#svgBlur");
+	filter:         blur( @value );
+}
+.animation(@value) {
+	-webkit-animation: @value;
+	-moz-animation:    @value;
+	-o-animation:      @value;
+	animation:         @value;
+}
+.rotate (@deg) {
+	-webkit-transform: rotate(@deg);
+	-moz-transform:    rotate(@deg);
+	-ms-transform:     rotate(@deg);
+	-o-transform:      rotate(@deg);
+}
+.tapHighlightColor(@value) {
+	-webkit-tap-highlight-color: @value;
+	-moz-tap-highlight-color:    @value;
+	-o-tap-highlight-color:      @value;
+	tap-highlight-color:         @value;
+}
+
+// animation / keyframes
+.keyframes(@name; @arguments) {
+	@-moz-keyframes @name { @arguments(); }
+	@-webkit-keyframes @name { @arguments(); }
+	@keyframes @name { @arguments(); }
+}
