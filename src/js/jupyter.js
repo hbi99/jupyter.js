@@ -64,7 +64,9 @@
 						        gutters: _cm.gutterOptions,
 								extraKeys: _cm.extraKeys,
 								lineWrapping: false,
-								lineNumbers: true
+								lineNumbers: true,
+								viewportMargin: 37,
+								scrollbarStyle: 'native'
 							},
 							textarea,
 							editor;

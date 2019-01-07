@@ -3,7 +3,8 @@
 .CodeMirror {
   /* Set height, width, borders, and global font properties here */
   font-family: monospace;
-  height: 100%;
+  height: auto;
+  max-height: 400px;
   color: #000;
   font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
   font-size: 13px;
@@ -173,10 +174,10 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #f22;}
 
 .CodeMirror-scroll {
   position: relative;
-  height: auto !important;
-  overflow-y: visible;
-  overflow-x: scroll !important;
-  //margin-bottom: -30px;
+  height: 100%;
+  max-height: 400px;
+  overflow: auto;
+  margin-bottom: -30px;
   margin-right: -30px;
 }
 .CodeMirror-sizer {
@@ -217,7 +218,10 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #f22;}
 }
 
 .CodeMirror-gutters {
-  position: absolute; left: 0; top: 0;
+  background: #fff;
+  position: absolute;
+  left: 0;
+  top: 0;
   min-height: 100%;
   z-index: 3;
 }
