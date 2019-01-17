@@ -65,7 +65,6 @@
 								extraKeys: _cm.extraKeys,
 								lineWrapping: false,
 								lineNumbers: true,
-								viewportMargin: 37,
 								scrollbarStyle: 'native'
 							},
 							textarea,
@@ -110,7 +109,7 @@
 						jupyter.sandbox(cm.editors[index]);
 					}
 					sidebar = wrapper.querySelector('sidebar');
-					cm.editors[index].setSize(wrapper.offsetWidth - (sidebar.offsetWidth ? sidebar.offsetWidth - 1 : 2));
+					cm.editors[index].setSize(wrapper.offsetWidth - (sidebar.offsetWidth ? sidebar.offsetWidth + 1 : 2));
 					cm.editors[index].refresh();
 					break;
 			}
